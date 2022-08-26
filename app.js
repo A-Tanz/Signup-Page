@@ -53,9 +53,9 @@ app.get("/register",function(req,res){
   res.render("register");
 });
 
-app.get("/secrets",function(req,res){
+app.get("/image",function(req,res){
   if(req.isAuthenticated()){
-    res.render("secrets");
+    res.render("image");
   }else{
     res.redirect("/login");
   }
@@ -74,7 +74,7 @@ app.post("/register",function(req,res){
       res.redirect("/register");
     }else{
       passport.authenticate("local")(req,res,function(){
-        res.redirect("/secrets");
+        res.redirect("/image");
       });
     }
   });
@@ -86,7 +86,7 @@ app.post('/login',
 
   function(req, res) {
 
-    res.redirect('/secrets');
+    res.redirect('/image');
 
   });
 
